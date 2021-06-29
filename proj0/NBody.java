@@ -40,7 +40,7 @@ public class NBody {
              * draw planets
              */
             for (Planet p :planets) {
-                StdDraw.picture(p.xxPos, p.yyPos, "images/"+p.imgFileName);
+                p.draw();
             }
 
             StdDraw.show();
@@ -87,4 +87,5 @@ public class NBody {
         }
         return planets;
     }
+
 }
