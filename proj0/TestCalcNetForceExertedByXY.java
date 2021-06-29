@@ -33,7 +33,6 @@ public class TestCalcNetForceExertedByXY {
      */
     private static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
-
         BigDecimal bd = new BigDecimal(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
@@ -65,7 +64,6 @@ public class TestCalcNetForceExertedByXY {
 
         xNetForce = p1.calcNetForceExertedByX(planets);
         yNetForce = p1.calcNetForceExertedByY(planets);
-
         checkEquals(133.4, round(xNetForce, 2), "calcNetForceExertedByX()");
         checkEquals(0.0, round(yNetForce, 2), "calcNetForceExertedByY()");
 
