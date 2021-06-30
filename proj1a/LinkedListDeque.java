@@ -56,6 +56,7 @@ public class LinkedListDeque<T> {
         ItemList<T> node = new ItemList(item);
         ItemList pre = dummy.pre;
         //add last to empty list
+        size += 1;
         if (pre == null) {
             connect(dummy, node);
             connect(node, dummy);
@@ -64,7 +65,6 @@ public class LinkedListDeque<T> {
         //add last to non-empty list
         connect(pre, node);
         connect(node, dummy);
-        size += 1;
     }
 
     /*Returns true if deque is empty, false otherwise*/
@@ -136,6 +136,7 @@ public class LinkedListDeque<T> {
             return null;
         }
         if (index == 0) {
+            if (node == null) return null;
             return (T)node.item;
         }
 
@@ -155,6 +156,7 @@ public class LinkedListDeque<T> {
         ItemList<T> p = dummy.next;
         while (p != dummy) {
             if (index == 0) {
+                if (p == null) return null;
                 return (T)p.item;
             }
             index--;
