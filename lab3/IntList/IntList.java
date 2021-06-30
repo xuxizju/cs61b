@@ -11,11 +11,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
     private IntList p;
 
     /**
@@ -82,9 +82,11 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        if (A == null) return B;
+        if (A == null) {
+            return B;
+        }
         IntList p = A;
-        while (p.rest != null){
+        while (p.rest != null) {
             p = p.rest;
         }
         //p.rest == null, p is the tail element
@@ -125,7 +127,7 @@ public class IntList {
      * @param L a IntList
      * @return reverse version for the IntList
      */
-    public static IntList reverse(IntList L){
+    public static IntList reverse(IntList L) {
         IntList pre = null;
         IntList cur = L;
         while (cur != null) {
@@ -192,7 +194,6 @@ public class IntList {
             return false;
         }
         IntList L = (IntList) x;
-        IntList p;
 
         for (p = this; p != null && L != null; p = p.rest, L = L.rest) {
             if (p.first != L.first) {
@@ -258,7 +259,7 @@ public class IntList {
         int cycleLocation = detectCycles(this);
         int cnt = 0;
 
-        for (IntList p = this; p != null; p = p.rest) {
+        for (p = this; p != null; p = p.rest) {
             out.format("%s%d", sep, p.first);
             sep = ", ";
 
